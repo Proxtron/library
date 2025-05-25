@@ -1,0 +1,17 @@
+:root {
+    --gray: #e9e9e9d9;
+}
+
+body {
+    display:grid;
+    grid-template-rows: 5rem 1fr 5rem;
+    min-height:100vh;
+}
+
+header {
+    background-color: var(--gray);
+}
+
+footer {
+    background-color: var(--gray);
+}
