@@ -20,4 +20,22 @@ function addBookToLibrary(title, author, read, pages) {
 addBookToLibrary("No Longer Human", "Osamu Dazai", true, 177);
 addBookToLibrary("Atomic Habits", "James Clear", false, 319);
 addBookToLibrary("1984", "George Orwell", false, 368);
-console.log(library);
+
+function displayBooks() {
+    const booksContainer = document.getElementById("books-container")
+    for(let i = 0; i < library.length; i++) {
+        const book = library[i];
+        booksContainer.innerHTML += `
+        <div class="book-card">
+            <h2 class="book-title-text">${book.title}</h2>
+            <p class="author-text card-sub-text">${book.author}</p>
+            <p class="card-sub-text">${book.pages} page(s)</p>
+            <p class="card-sub-text">${book.read ? "Read" : "Not read yet"}</p>
+        </div>
+        `;
+    }    
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    displayBooks();
+});

@@ -1,17 +1,79 @@
 :root {
     --gray: #e9e9e9d9;
+    --medium-gray: #AAA;
+    --dark-gray: #444;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+p {
+    font-size:1rem;
 }
 
 body {
     display:grid;
     grid-template-rows: 5rem 1fr 5rem;
     min-height:100vh;
+    font-family: Roboto, sans-serif
 }
 
 header {
     background-color: var(--gray);
+    padding: 0 15vw;
+    display:flex;
+    align-items: center;
+}
+
+header > a {
+    margin-left: auto;
+}
+
+main {
+    padding: 2rem 15vw;
+}
+
+.books-container {
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap:1rem;
+}
+
+.book-card {
+    background-color: var(--gray);
+    border-radius: 1rem;
+    padding:1.25rem;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.book-card:hover {
+    box-shadow: 8px 8px 10px var(--medium-gray);
+    transform: translateY(-3px);
+}
+
+h2.book-title-text {
+    margin-bottom: 1rem;
+}
+
+p.author-text {
+    font-weight:bold;
+}
+
+p.card-sub-text {
+    color: var(--dark-gray);
 }
 
 footer {
     background-color: var(--gray);
+    padding: 0 15vw;
 }
