@@ -5,6 +5,7 @@
     --dark-gray: #444;
     --red: #ff2e2e;
     --primary-blue: #008cff;
+    --green: #06b61e;
 }
 
 h1 {
@@ -57,12 +58,6 @@ main {
     background-color: var(--gray);
     border-radius: 1rem;
     padding:1.25rem;
-    transition: all .3s ease;
-}
-
-.book-card:hover {
-    box-shadow: 8px 8px 10px var(--medium-gray);
-    transform: translateY(-3px);
 }
 
 h2.book-title-text {
@@ -180,6 +175,30 @@ input[type="radio"] + label {
 .delete-book-btn {
     border: none;
     cursor:pointer;
-    display:block;
-    margin-left:auto;
+}
+
+.book-action-btns {
+    display:grid;
+    grid-template-columns: 10rem auto;
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: right;
+    gap:.5rem;
+}
+.btn-read, .btn-not-read {
+    background-color: none;
+    border: none;
+    padding: .25rem .75rem;
+    border-radius: .5rem;
+    color:var(--white);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-read {
+    background-color: var(--green);
+}
+
+.btn-not-read {
+    background-color: var(--red);
 }

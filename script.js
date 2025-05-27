@@ -12,6 +12,10 @@ function Book(title, author, read, pages) {
     this.pages = pages;
 }
 
+Book.prototype.toggleRead = function () {
+    this.read = !this.read;
+};
+
 function addBookToLibrary(title, author, read, pages) {
     const newBook = new Book(title, author, read, pages);
     library.push(newBook);
@@ -34,33 +38,48 @@ function displayBooks() {
             <h2 class="book-title-text">${book.title}</h2>
             <p class="author-text card-sub-text">${book.author}</p>
             <p class="card-sub-text">${book.pages} page(s)</p>
-            <p class="card-sub-text">${book.read ? "Read" : "Not read yet"}</p>
-            <button data-id="${book.id}" class="delete-book-btn" type="button"><img src="trashcan.svg" width="30" height="30"></button>
+            <div class="book-action-btns">
+                <button data-id="${book.id}" class="toggle-read-btn opaque-hover ${book.read ? "btn-read" : "btn-not-read"}" type="button">${book.read ? "Read" : "Not read yet"}</p>
+                <button data-id="${book.id}" class="delete-book-btn opaque-hover" type="button"><img src="trashcan.svg" width="30" height="30"></button>
+            </div>
         </div>
         `;
     }
 
-    attachDeleteListeners();
+    attachListeners();
     
 }
 
-function attachDeleteListeners() {
-    const deleteBookBtns = document.querySelectorAll("[data-id]");
+function attachListeners() {
+    const deleteBookBtns = document.querySelectorAll(".delete-book-btn");
     deleteBookBtns.forEach((button) => {
         button.addEventListener("click", () => {
-            searchAndDeleteBook(button);
+            const index = getIndexById(button.dataset.id);
+            library.splice(index, 1);
+            displayBooks();
+        });
+    });
+
+    const toggleReadBtns = document.querySelectorAll(".toggle-read-btn");
+    toggleReadBtns.forEach((button) => {
+        button.addEventListener("click", () => {
+            const index = getIndexById(button.dataset.id);
+            const book = library[index];
+            book.toggleRead();
             displayBooks();
         });
     });
 }
 
-function searchAndDeleteBook(button) {
+function getIndexById(id) {
     for(let i = 0; i < library.length; i++) {
-        if(library[i].id == button.dataset.id) {
-            library.splice(i, 1);
+        if(library[i].id == id) {
+            return i;
         }
     }
+    return false;
 }
+
 function displayAddBookModal() {
     modalElement.showModal();
 }
