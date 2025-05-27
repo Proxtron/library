@@ -17,38 +17,24 @@
     </header>
     <main>
         <div id="books-container" class="books-container">
-            <div class="book-card">
-                <h2 class="book-title-text">Book Title</h2>
-                <p class="author-text card-sub-text">Author</p>
-                <p class="card-sub-text">300 pages</p>
-                <p class="card-sub-text">Read</p>
-            </div>
-            <div class="book-card">
-                <h2 class="book-title-text">Book Title</h2>
-                <p class="author-text card-sub-text">Author</p>
-                <p class="card-sub-text">300 pages</p>
-                <p class="card-sub-text">Read</p>
-            </div>
-            <div class="book-card">
-                <h2 class="book-title-text">Book Title</h2>
-                <p class="author-text card-sub-text">Author</p>
-                <p class="card-sub-text">300 pages</p>
-                <p class="card-sub-text">Read</p>
-            </div>
-            <div class="book-card">
-                <h2 class="book-title-text">Book Title</h2>
-                <p class="author-text card-sub-text">Author</p>
-                <p class="card-sub-text">300 pages</p>
-                <p class="card-sub-text">Read</p>
-            </div>
-            <div class="book-card">
-                <h2 class="book-title-text">Book Title</h2>
-                <p class="author-text card-sub-text">Author</p>
-                <p class="card-sub-text">300 pages</p>
-                <p class="card-sub-text">Read</p>
-            </div>
         </div>
+        <button id="add-btn" class="add-btn" type="button">+</button>
     </main>
+    <dialog id="modal" class="modal">
+        <button id="close-modal" class="close-modal">X</button>
+        <form method="dialog" action="">
+            <h2>Add a Book</h2>
+            <p>
+                <label for="title-input">Book Title</label>
+                <input id="title-input" type="text">
+            </p>
+            <p>
+                <label for="author-input">Author</label>
+                <input id="author-input" type="text">
+            </p>
+        </form>
+        
+    </dialog>
     <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

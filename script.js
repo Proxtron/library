@@ -36,6 +36,16 @@ function displayBooks() {
     }    
 }
 
+const modalElement = document.getElementById("modal");
+function displayAddBookModal() {
+    modalElement.showModal();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     displayBooks();
+
+    document.getElementById("add-btn").addEventListener("click", displayAddBookModal)
+    document.getElementById("close-modal").addEventListener("click", () => {
+        modalElement.close();
+    });
 });
