@@ -21,29 +21,29 @@
         <button id="add-btn" class="add-btn" type="button">+</button>
     </main>
     <dialog id="modal" class="modal">
-        <button id="close-modal" class="close-modal">X</button>
+        <button id="close-modal" class="close-modal opaque-hover">X</button>
         <form id="add-book-form">
             <h2>Add a Book</h2>
             <p>
                 <label for="title-input">Book Title</label>
-                <input id="title-input" type="text" name="title">
+                <input id="title-input" type="text" name="title" required>
             </p>
             <p>
                 <label for="author-input">Author</label>
-                <input id="author-input" type="text" name="author">
+                <input id="author-input" type="text" name="author" required>
             </p>
             <p>
                 <label for="pages-input">Page Count</label>
-                <input id="pages-input" type="number" min="1" name="page-number">
+                <input id="pages-input" type="number" min="1" name="page-number" required>
             </p>
             <p>
                 <label>Read</label>
-                <input type="radio" id="read-radio" name="read" value="1">
+                <input type="radio" id="read-radio" name="read" value="1" required>
                 <label for="read-radio">Read</label>
-                <input type="radio" id="not-read-radio" name="read" value="0">
+                <input type="radio" id="not-read-radio" name="read" value="0" required>
                 <label for="not-read-radio">Not Read</label>
             </p>
-            <button type="submit" id="confirm-add-form-btn" class="confirm-add-form-btn">Add Book to Library</button>
+            <button type="submit" id="confirm-add-form-btn" class="confirm-add-form-btn opaque-hover">Add Book to Library</button>
         </form>
         
     </dialog>
