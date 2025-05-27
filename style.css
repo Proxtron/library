@@ -4,6 +4,7 @@
     --medium-gray: #AAA;
     --dark-gray: #444;
     --red: #ff2e2e;
+    --primary-blue: #008cff;
 }
 
 h1 {
@@ -96,13 +97,14 @@ p.card-sub-text {
 }
 
 .modal {
-    display:absolute;
+    position:absolute;
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
-    width:500px;
+    width:750px;
     border:none;
     border-radius: 1rem;
+    padding:2rem;
 }
 
 .close-modal {
@@ -126,14 +128,43 @@ p.card-sub-text {
     font-weight: bold;
     font-size:1.5rem;
     margin-right: 1rem;
-    width:125px;
+    width:200px;
     display:inline-block;
 }
 
 .modal p {
     margin-bottom: 1rem;
 }
-.modal input {
-    
-    padding:.25rem
+.modal input[type="text"], .modal input[type="number"] {
+    width:20rem;
+    padding:.25rem;
+    appearance: none;
+    border: 1px solid var(--medium-gray);
+    border-radius: .75rem;
+}
+
+input[type="radio"] {
+    margin-right: .5rem;
+}
+
+input[type="radio"] + label {
+    width: auto;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.confirm-add-form-btn {
+    border: none;
+    padding: .5rem 2rem;
+    border-radius: 1rem;
+    background-color: var(--primary-blue);
+    margin-left: calc(200px + 1rem);
+    color:var(--white);
+    font-weight: bold;
+    transform: all .3s ease;
+    cursor: pointer;
+}
+
+.confirm-add-form-btn:hover {
+    opacity: .8;
 }

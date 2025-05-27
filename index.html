@@ -22,16 +22,28 @@
     </main>
     <dialog id="modal" class="modal">
         <button id="close-modal" class="close-modal">X</button>
-        <form method="dialog" action="">
+        <form id="add-book-form">
             <h2>Add a Book</h2>
             <p>
                 <label for="title-input">Book Title</label>
-                <input id="title-input" type="text">
+                <input id="title-input" type="text" name="title">
             </p>
             <p>
                 <label for="author-input">Author</label>
-                <input id="author-input" type="text">
+                <input id="author-input" type="text" name="author">
             </p>
+            <p>
+                <label for="pages-input">Page Count</label>
+                <input id="pages-input" type="number" min="1" name="page-number">
+            </p>
+            <p>
+                <label>Read</label>
+                <input type="radio" id="read-radio" name="read" value="1">
+                <label for="read-radio">Read</label>
+                <input type="radio" id="not-read-radio" name="read" value="0">
+                <label for="not-read-radio">Not Read</label>
+            </p>
+            <button type="submit" id="confirm-add-form-btn" class="confirm-add-form-btn">Add Book to Library</button>
         </form>
         
     </dialog>

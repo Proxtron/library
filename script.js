@@ -21,8 +21,12 @@ addBookToLibrary("No Longer Human", "Osamu Dazai", true, 177);
 addBookToLibrary("Atomic Habits", "James Clear", false, 319);
 addBookToLibrary("1984", "George Orwell", false, 368);
 
+const booksContainer = document.getElementById("books-container")
+const modalElement = document.getElementById("modal");
+const formElement = document.getElementById("add-book-form");
+
 function displayBooks() {
-    const booksContainer = document.getElementById("books-container")
+    booksContainer.innerHTML = "";
     for(let i = 0; i < library.length; i++) {
         const book = library[i];
         booksContainer.innerHTML += `
@@ -36,9 +40,24 @@ function displayBooks() {
     }    
 }
 
-const modalElement = document.getElementById("modal");
 function displayAddBookModal() {
     modalElement.showModal();
+}
+
+function handleSubmitAddBook(event) {
+    event.preventDefault();
+
+    const formData = new FormData(formElement);
+    const bookTitle = formData.get("title")
+    const bookAuthor = formData.get("author");
+    const pageNumber = parseInt(formData.get("page-number"));
+    const read = formData.get("read") === "1" ? true : false;
+    
+    addBookToLibrary(bookTitle, bookAuthor, read, pageNumber)
+    displayBooks();
+
+    modalElement.close();
+    formElement.reset();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -48,4 +67,5 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("close-modal").addEventListener("click", () => {
         modalElement.close();
     });
+    document.getElementById("add-book-form").addEventListener("submit", (event) => handleSubmitAddBook(event));
 });
