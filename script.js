@@ -35,11 +35,32 @@ function displayBooks() {
             <p class="author-text card-sub-text">${book.author}</p>
             <p class="card-sub-text">${book.pages} page(s)</p>
             <p class="card-sub-text">${book.read ? "Read" : "Not read yet"}</p>
+            <button data-id="${book.id}" class="delete-book-btn" type="button"><img src="trashcan.svg" width="30" height="30"></button>
         </div>
         `;
-    }    
+    }
+
+    attachDeleteListeners();
+    
 }
 
+function attachDeleteListeners() {
+    const deleteBookBtns = document.querySelectorAll("[data-id]");
+    deleteBookBtns.forEach((button) => {
+        button.addEventListener("click", () => {
+            searchAndDeleteBook(button);
+            displayBooks();
+        });
+    });
+}
+
+function searchAndDeleteBook(button) {
+    for(let i = 0; i < library.length; i++) {
+        if(library[i].id == button.dataset.id) {
+            library.splice(i, 1);
+        }
+    }
+}
 function displayAddBookModal() {
     modalElement.showModal();
 }
@@ -68,4 +89,5 @@ document.addEventListener("DOMContentLoaded", () => {
         modalElement.close();
     });
     document.getElementById("add-book-form").addEventListener("submit", (event) => handleSubmitAddBook(event));
+    
 });
