@@ -1,20 +1,18 @@
 const library = [];
 
-function Book(title, author, read, pages) {
-    if(!new.target) {
-        throw new Error("Must use new keyword to create book objects");
+class Book {
+    constructor(title, author, read, pages) {
+        this.id = crypto.randomUUID();
+        this.title = title;
+        this.author = author;
+        this.read = read;
+        this.pages = pages;
     }
 
-    this.id = crypto.randomUUID();
-    this.title = title;
-    this.author = author;
-    this.read = read;
-    this.pages = pages;
+    toggleRead = () => {
+        this.read = !this.read;
+    }
 }
-
-Book.prototype.toggleRead = function () {
-    this.read = !this.read;
-};
 
 function addBookToLibrary(title, author, read, pages) {
     const newBook = new Book(title, author, read, pages);
