@@ -79,7 +79,27 @@ function getIndexById(id) {
 }
 
 function displayAddBookModal() {
+    addModalListeners();
     modalElement.showModal();
+}
+
+function addModalListeners() {
+    document.querySelectorAll(".blur-validation").forEach((inputElement) => {
+        inputElement.addEventListener("blur", () => {
+            if(inputElement.checkValidity()) {
+                inputElement.setCustomValidity("");
+                return;
+            }
+            if(inputElement.rangeUnderflow) {
+                inputElement.setCustomValidity("Number of pages must be a positive number");
+            } else if (inputElement.valueMissing) {
+                inputElement.setCustomValidity("Please enter the required field");
+            }
+
+            inputElement.classList.add("invalid-input")
+            inputElement.reportValidity(); 
+        });
+    });
 }
 
 function handleSubmitAddBook(event) {

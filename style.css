@@ -137,14 +137,13 @@ p.card-sub-text {
     border-radius: .75rem;
 }
 
-input[type="text"]:invalid, input[type="number"]:invalid {
-    border:1px solid var(--red)
-}
-
 input[type="radio"] {
     margin-right: .5rem;
 }
 
+input:focus {
+    outline: none;
+}
 input[type="radio"] + label {
     width: auto;
     font-weight: 400;
@@ -201,4 +200,8 @@ input[type="radio"] + label {
 
 .btn-not-read {
     background-color: var(--red);
+}
+
+.invalid-input {
+    border: 1px solid red;
 }
