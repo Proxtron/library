@@ -96,8 +96,10 @@ function addModalListeners() {
                 inputElement.setCustomValidity("Please enter the required field");
             }
 
-            inputElement.classList.add("invalid-input")
+            
             inputElement.reportValidity(); 
+        });
+        inputElement.addEventListener("invalid", () => {
         });
     });
 }
